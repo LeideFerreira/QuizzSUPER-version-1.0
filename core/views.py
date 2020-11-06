@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import Question
 from django.core.paginator import Paginator, EmptyPage, InvalidPage
 
-pag_total = 4  # total de paginas que vai ter o quizz,
+pag_total = 5  # total de paginas que vai ter o quizz,
 question_global = Question.objects.all()[:pag_total]  # objetos aleatorio,provavelmente to errando porque atualiza a
 # pagina e aleatorio tbm
 resposta_jogador = []  # resposta jogador
@@ -35,7 +35,8 @@ def showquizz(request):
 def resultado(request):
     score = 0
     print("Entrou em resultado")
-
+    print(resposta_jogador)
+    print(list_correta)
     for i in range(len(resposta_jogador)):
         if resposta_jogador[i] == list_correta[i]:  # comparo a resposta do jogador com a lista de resposta certa
             score += 1
@@ -43,7 +44,7 @@ def resultado(request):
     context = {
         'score': score,
         'resposta_jogador': resposta_jogador,
-        'question': question_global,
+        'questions': question_global,
 
     }
     return render(request, 'resultado.html', context)
@@ -52,7 +53,7 @@ def resultado(request):
 def save_ans(request):
     ans = request.GET['ans']
     resposta_jogador.append(ans)  # aqui que salvo as resposta do jogador
-    return render(request, 'showquizz.html', {'resposta_jogador': resposta_jogador})#passo para o request a lista atualizada
+    return render(request, 'showquizz.html', {'resposta_jogador': resposta_jogador}) # passo para o request a lista atualizada
 
 
 def index(request):

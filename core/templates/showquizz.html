@@ -1,0 +1,129 @@
+{% load bootstrap4 %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quizz</title>
+    {%bootstrap_css%}
+    <style>
+        body {
+          margin: 0;
+          font-family: Lato, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+          font-size: 0.9375rem;
+          font-weight: 400;
+          line-height: 1.5;
+          color: #fff;
+          text-align: left;
+          background-color: #222;
+        }
+        .container{
+           width: 60%;
+           margin: 100px 160px;
+           box-sizing: border-box;
+           border: 3px solid blue;
+           display: block;
+           justify-content: center;
+           align-items: center;
+           flex-wrap: wrap;
+           padding-top: 1rem;
+        }
+    </style>
+    <script>
+        window.onload = initall;
+        var  saveBookButton;
+        function initall() {
+        console.log("Entrouaqui")
+            saveBookButton=document.getElementById('save_ans')
+            saveBookButton.onclick = save_ans;
+         }
+        function save_ans() {
+          console.log("ta salvando")
+            var ans = $("input:radio[name=name]:checked").val()
+            var url = '/save_ans?ans='+ans
+            console.log(ans)
+            var req = new XMLHttpRequest();
+            req.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+            //  alert(req.responseText)
+            }
+        };
+        req.open("GET", url, true, ans);
+        req.send(document);
+    }
+    </script>
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary" style="">
+            <a href="../" class="navbar-brand"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">QUIZZ</font></font></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Alternar de navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="themes"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">INICIO </font></font><span class="caret"></span></a>
+                        <div class="dropdown-menu" aria-labelledby="themes">
+                            <a class="dropdown-item" href="../default/"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Padrão</font></font></a>
+                            <div class="dropdown-divider"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <center><h2>Pergunta {{ questions.end_index }} de  {{count}}</h2></center>
+        <div>
+            {% for question in questions %}
+            <table>
+                <tr>
+                    <td>
+                        <label class ="text-primary"><h5>{{question.pergunta}}</h5></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                       <input type="radio" class="rb" name="name" id="a" value="A">
+                        {{question.a}}
+                    </td>
+                </tr>
+                 <tr>
+                    <td>
+                       <input type="radio" class="rb" name="name" id="b" value="B">
+                        {{question.b}}
+                    </td>
+                </tr>
+                 <tr>
+                    <td>
+                       <input type="radio" class="rb" name="name" id="c" value="C">
+                        {{question.c}}
+                    </td>
+                </tr>
+                 <tr>
+                    <td>
+                       <input type="radio" class="rb" name="name" id="d" value="D">
+                        {{question.d}}
+                    </td>
+                </tr>
+                  <tr>
+                     <td>
+                         <label id ="correta" class ="rb" style="display:none; color: green"><b>{{question.correta}}</b></label>
+                    </td>
+                  </tr>
+            </table>
+            {% endfor %}
+            <div class="paginetor">
+                <div class="form-group">
+                    {%  if questions.has_next %}
+                    <a href="?page={{ questions.next_page_number }}"><button class="form-control btn-primary" id="save_ans">Next</button></a>
+                    {% else %}
+                    <a href="resultado"><button class="btn form-control btn-success" id="save_ans">Submit Quiz</button></a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% bootstrap_javascript jquery='full'%}
+</body>
+</html>

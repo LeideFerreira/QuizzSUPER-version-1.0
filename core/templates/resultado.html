@@ -97,9 +97,17 @@
                       </tr>
                 </table>
                 {% endfor %}
+                {% for resposta in resposta_jogador %}
+                   <table>
+                    <tr>
+                        <td>
+                            <label class="text-primary"><b>Ola {{resposta}}</b></label>
+                        </td>
+                    </tr>
+                   </table>
+                {% endfor %}
                              <center>
                                <a href="../"><h4>Sua pontuação obtida foi {{score}}. <br> Clique aqui para voltar pro inicio</h4></a>
-
                              </center>
             </div>
             {% bootstrap_javascript jquery='full'%}

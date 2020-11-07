@@ -3,8 +3,7 @@ from .models import Question
 from django.core.paginator import Paginator, EmptyPage, InvalidPage
 
 pag_total = 5  # total de paginas que vai ter o quizz,
-question_global = Question.objects.get_queryset().order_by('id')[
-                  :pag_total]  # objetos aleatorio,provavelmente to errando porque atualiza a
+question_global = Question.objects.get_queryset().order_by('id')[:pag_total]  # objetos aleatorio,provavelmente to errando porque atualiza a
 # pagina e aleatorio tbm
 resposta_jogador = []  # resposta jogador
 list_correta = []  # resposta correta

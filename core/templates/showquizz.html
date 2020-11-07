@@ -32,23 +32,22 @@
         window.onload = initall;
         var  saveBookButton;
         function initall() {
-        console.log("Entrouaqui")
+        console.log("Iniciou")
             saveBookButton=document.getElementById('save_ans')
             saveBookButton.onclick = save_ans;
          }
         function save_ans() {
-          console.log("ta salvando")
             var ans = $("input:radio[name=name]:checked").val()
             var url = '/save_ans?ans='+ans
-            console.log(ans)
-            var req = new XMLHttpRequest();
+            console.log("Usuario escolheu a alternativa ",ans)
+            var req = new XMLHttpRequest(); // Iniciando um request
             req.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-            //  alert(req.responseText)
+               // alert(req.responseText)
             }
         };
         req.open("GET", url, true, ans);
-        req.send(document);
+        req.send();
     }
     </script>
 </head>
@@ -85,32 +84,27 @@
                 <tr>
                     <td>
                        <input type="radio" class="rb" name="name" id="a" value="A" checked>
-                        {{question.a}}
+                        A) {{question.a}}
                     </td>
                 </tr>
                  <tr>
                     <td>
                        <input type="radio" class="rb" name="name" id="b" value="B" checked>
-                        {{question.b}}
+                        B) {{question.b}}
                     </td>
                 </tr>
                  <tr>
                     <td>
                        <input type="radio" class="rb" name="name" id="c" value="C" checked>
-                        {{question.c}}
+                        C) {{question.c}}
                     </td>
                 </tr>
                  <tr>
                     <td>
                        <input type="radio" class="rb" name="name" id="d" value="D" checked>
-                        {{question.d}}
+                        D) {{question.d}}
                     </td>
                 </tr>
-                  <tr>
-                     <td>
-                         <label id ="correta" class ="rb" style="display:none; color: green"><b>{{question.correta}}</b></label>
-                    </td>
-                  </tr>
             </table>
             {% endfor %}
             <div class="paginetor">

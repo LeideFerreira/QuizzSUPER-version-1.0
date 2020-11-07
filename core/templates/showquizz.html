@@ -47,6 +47,7 @@
             }
         };
         req.open('GET', url, true);
+        req.onerror = function(err) { console.error(err) }
         req.send();
     }
     </script>
@@ -76,37 +77,12 @@
         <div>
             {% for question in questions %}
             <form id="myForm">
-
             <table>
-                <tr>
-                    <td>
-                        <label><h5>{{question.pergunta}}</h5></label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                       <input type="radio" class="rb" name="name" id="a" value="A" checked>
-                        A) {{question.a}}
-                    </td>
-                </tr>
-                 <tr>
-                    <td>
-                       <input type="radio" class="rb" name="name" id="b" value="B" checked>
-                        B) {{question.b}}
-                    </td>
-                </tr>
-                 <tr>
-                    <td>
-                       <input type="radio" class="rb" name="name" id="c" value="C" checked>
-                        C) {{question.c}}
-                    </td>
-                </tr>
-                 <tr>
-                    <td>
-                       <input type="radio" class="rb" name="name" id="d" value="D" checked>
-                        D) {{question.d}}
-                    </td>
-                </tr>
+                <tr><td><label><h5>{{question.pergunta}}</h5></label></td></tr>
+                <tr><td><input type="radio" class="rb" name="name" id="a" value="A">A) {{question.a}}</td></tr>
+                 <tr><td><input type="radio" class="rb" name="name" id="b" value="B">B) {{question.b}}</td></tr>
+                 <tr><td><input type="radio" class="rb" name="name" id="c" value="C">C) {{question.c}}</td></tr>
+                 <tr><td><input type="radio" class="rb" name="name" id="d" value="D">D) {{question.d}}</td></tr>
             </table>
             </form>
             {% endfor %}

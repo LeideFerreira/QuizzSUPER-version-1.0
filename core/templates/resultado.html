@@ -7,16 +7,6 @@
         <title>Sua pontuação</title>
             {%bootstrap_css%}
         <style>
-<!--            body {-->
-<!--              margin: 0;-->
-<!--              font-family: Lato, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";-->
-<!--              font-size: 0.9375rem;-->
-<!--              font-weight: 400;-->
-<!--              line-height: 1.5;-->
-<!--              color: #fff;-->
-<!--              text-align: left;-->
-<!--              background-color: #222;-->
-<!--            }-->
            .texto{
                 width: 60%;
                 height: 15%;
@@ -27,10 +17,7 @@
                 right: 0;
                 margin: auto;
             }
-            .container1{
-               width: 60%;
-               margin: 100px 160px;
-               box-sizing: border-box;
+            .container1{width: 60%;margin: 100px 160px;box-sizing: border-box;
                border: 3px solid blue;
                display: block;
                justify-content: center;
@@ -59,56 +46,23 @@
                 </div>
             </div>
         </div>
-
             <div class = "container1">
                 {% for question in questions %}
-
                 <table>
-                    <tr>
-                        <td>
-                            <label class ="text-primary"><h5>{{question.pergunta}}</h5></label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                             <label class ="text-primary"> A) {{question.a}}</label>
-                        </td>
-                    </tr>
-                     <tr>
-                        <td>
-                             <label class ="text-primary">B) {{question.b}}</label>
-                        </td>
-                    </tr>
-                     <tr>
-                         <td>
-                             <label class ="text-primary">C) {{question.c}}</label>
-                        </td>
-                    </tr>
-                     <tr>
-                        <td>
-                             <label class ="text-primary">D) {{question.d}}</label>
-                        </td>
-                    </tr>
-                      <tr>
-                         <td>
-
-                             <label id ="correta" class ="rb" style="color: green"><b> A questao correta da alternativa: {{question.correta}} <br> Solução:<br> {{question.solucao}}</b></label>
-                         </td>
-                      </tr>
+                    <tr><td><label class ="text-primary"><h5>{{question.pergunta}}</h5></label></td></tr>
+                    <tr><td><label class ="text-primary"> A) {{question.a}}</label></td></tr>
+                    <tr><td><label class ="text-primary">B) {{question.b}}</label></td></tr>
+                    <tr><td><label class ="text-primary">C) {{question.c}}</label></td></tr><tr>
+                    <td><label class ="text-primary">D) {{question.d}}</label></td></tr>
+                    <tr><td><label id ="correta" class ="rb" style="color: green"><b> A questao correta da alternativa: {{question.correta}} <br> Solução:<br> {{question.solucao}}</b></label></td></tr>
                 </table>
                 {% endfor %}
                 {% for resposta in resposta_jogador %}
-                   <table>
-                    <tr>
-                        <td>
-                            <label class="text-primary"><b>Ola {{resposta}}</b></label>
-                        </td>
-                    </tr>
-                   </table>
+                   <table><tr><td><label class="text-primary"><b>Ola {{resposta}}</b></label></td></tr></table>
                 {% endfor %}
-                             <center>
-                               <a href="../"><h4>Sua pontuação obtida foi {{score}}. <br> Clique aqui para voltar pro inicio</h4></a>
-                             </center>
+                 <center>
+                   <a href="../"><h4>Sua pontuação obtida foi {{score}}. <br> Clique aqui para voltar pro inicio</h4></a>
+                 </center>
             </div>
             {% bootstrap_javascript jquery='full'%}
     </body>

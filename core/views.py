@@ -3,7 +3,8 @@ from .models import Question
 from django.core.paginator import Paginator, EmptyPage, InvalidPage
 
 pag_total = 5  # total de paginas que vai ter o quizz,
-question_global = Question.objects.get_queryset().order_by('id')[:pag_total]  # objetos aleatorio,provavelmente to errando porque atualiza a
+question_global = Question.objects.get_queryset().order_by('id')[:pag_total]
+# objetos aleatorio,provavelmente to errando porque atualiza a
 # pagina e aleatorio tbm
 resposta_jogador = []  # resposta jogador
 list_correta = []  # resposta correta
@@ -34,9 +35,8 @@ def showquizz(request):
 
 def resultado(request):
     score = 0
-    if len(resposta_jogador) <= (len(list_correta)): #caso a quantidade de resposta for igual ou menor a de perguntas
+    if len(resposta_jogador) <= (len(list_correta)):  # caso a quantidade de resposta for igual ou menor a de perguntas
         for i in range(len(resposta_jogador)):
-            # print(i)
             if resposta_jogador[i] == list_correta[i]:  # comparo a resposta do jogador com a lista de resposta certa
                 score += 1
 
@@ -50,10 +50,11 @@ def resultado(request):
 
 
 def save_ans(request):
+    # if aqui eu pegar a resposta do usuário e a resposta da questao simutaneamente?
     ans = request.GET['ans']
     print("salvou resposta", ans)
     resposta_jogador.append(ans)  # aqui que salvo as resposta do jogador
-    return render(request, 'showquizz.html', {'resposta_jogador': resposta_jogador})  # passo para o request a lista atualizada
+    return render(request, 'showquizz.html')  # passo para o request a lista atualizada
 
 
 def index(request):

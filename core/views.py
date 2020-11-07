@@ -51,9 +51,9 @@ def resultado(request):
 
 def save_ans(request):
     ans = request.GET['ans']
+    print("salvou resposta", ans)
     resposta_jogador.append(ans)  # aqui que salvo as resposta do jogador
-    return render(request, 'showquizz.html',
-                  {'resposta_jogador': resposta_jogador})  # passo para o request a lista atualizada
+    return render(request, 'showquizz.html', {'resposta_jogador': resposta_jogador})  # passo para o request a lista atualizada
 
 
 def index(request):

@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Welcome to Quiz App</title>
+        <title>Bem-vindo ao Quizz APP</title>
             {%bootstrap_css%}
         <style>
             body {
@@ -13,19 +13,25 @@
               font-size: 0.9375rem;
               font-weight: 400;
               line-height: 1.5;
-              color: #fff;
+              color: #FFC0CB;
               text-align: left;
-              background-color: #222;
+              background-color: grey21;
             }
-            .texto{
-                width: 15%;
-                height: 5%;
+            .text-primary{
+                width: 40%;
+                height: 10%;
                 position: absolute;
                 top:0;
                 bottom: 0;
                 left: 0;
                 right: 0;
                 margin: auto;
+                border-style: 3px double;
+            }
+            .text-info{
+                width: 100%;
+                height: 5%;
+                margin-top: 5%;
             }
         </style>
     </head>
@@ -51,7 +57,8 @@
              </div>
          </div>
         <div>
-            <h1><a href="showquizz" class="texto">Iniciar Quizz</a></h1>
+            <h5><p class="text-info">Plataforma Quizz com foco em questões de pré-cálculo versão 1.0</p></h5>
+            <h1><a href="showquizz" class="text-primary">Clique aqui para iniciar o Quizz</a></h1>
             {% bootstrap_javascript jquery='full'%}
         </div>
     </body>

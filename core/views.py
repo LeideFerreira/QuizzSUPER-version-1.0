@@ -3,7 +3,7 @@ from .models import Question
 from django.core.paginator import Paginator, EmptyPage, InvalidPage
 
 pag_total = 5  # total de paginas que vai ter o quizz,
-question_global = Question.objects.all()[:pag_total]  # objetos aleatorio,provavelmente to errando porque atualiza a
+question_global = Question.objects.get_queryset().order_by('id')[:pag_total]  # objetos aleatorio,provavelmente to errando porque atualiza a
 # pagina e aleatorio tbm
 resposta_jogador = []  # resposta jogador
 list_correta = []  # resposta correta
@@ -34,12 +34,15 @@ def showquizz(request):
 
 def resultado(request):
     score = 0
-    print("Entrou em resultado")
-    print(resposta_jogador)
-    print(list_correta)
+    # print("Entrou em resultado")
+    # print(resposta_jogador)
+    # print(list_correta)
     for i in range(len(resposta_jogador)):
+        # print(i)
         if resposta_jogador[i] == list_correta[i]:  # comparo a resposta do jogador com a lista de resposta certa
-            score += 1
+           # print(resposta_jogador[i])
+           # print(list_correta[i])
+           score += 1
 
     context = {
         'score': score,

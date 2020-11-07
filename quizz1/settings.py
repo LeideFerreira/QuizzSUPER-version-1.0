@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '5tulzh-))ppbsnlrew%w!2u%52@v14@d%9m15xm9z&yrculjn%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['quizz1-lmsf.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition

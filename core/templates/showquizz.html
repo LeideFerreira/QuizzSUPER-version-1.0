@@ -38,6 +38,12 @@
          }
         function save_ans() {
             var ans = $('input:radio[name=name]:checked','#myForm').val()
+            var cont
+            if({{question.correta}} == ans){
+               //cont = 1
+            }else{
+                //cont = 0
+            }
             var url = '/save_ans?ans='+ans
             console.log("Usuario escolheu a alternativa ",ans)
             var req = new XMLHttpRequest(); // Iniciando um request

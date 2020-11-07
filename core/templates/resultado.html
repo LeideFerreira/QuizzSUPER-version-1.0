@@ -56,10 +56,7 @@
                     <td><label class ="text-primary">D) {{question.d}}</label></td></tr>
                     <tr><td><label id ="correta" class ="rb" style="color: green"><b> A questao correta da alternativa: {{question.correta}} <br> Solução:<br> {{question.solucao}}</b></label></td></tr>
                 </table>
-                {% endfor %}
-                {% for resposta in resposta_jogador %}
-                   <table><tr><td><label class="text-primary"><b>Ola {{resposta}}</b></label></td></tr></table>
-                {% endfor %}
+                {%endfor%}
                  <center>
                    <a href="../"><h4>Sua pontuação obtida foi {{score}}. <br> Clique aqui para voltar pro inicio</h4></a>
                  </center>

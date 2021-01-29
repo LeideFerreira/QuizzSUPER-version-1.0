@@ -7,21 +7,18 @@
     {%bootstrap_css%}
     <style>
         body {
-          margin: 0;
-          font-family: Lato, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-          font-size: 0.9375rem;
-          font-weight: 400;
-          line-height: 1.5;
-          color: #fff;
-          text-align: left;
-          background-color: #222;
+           background-color: #7cc6fe;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  min-height: 100vh;
         }
         .container{
            width: 60%;
            margin: 100px 160px;
            box-sizing: border-box;
-           border: 3px solid blue;
-           display: block;
+           border: double white;
+           display: block;s
            justify-content: center;
            align-items: center;
            flex-wrap: wrap;
@@ -54,7 +51,7 @@
 </head>
 <body>
     <div class="navbar">
-        <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary" style="">
+        <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" style="">
             <a href="../" class="navbar-brand"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">QUIZZ</font></font></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Alternar de navegação">
                 <span class="navbar-toggler-icon"></span>
@@ -89,7 +86,7 @@
             <div class="paginetor">
                 <div class="form-group">
                     {%  if questions.has_next %}
-                    <a href="?page={{ questions.next_page_number }}"><button class="form-control btn-primary" id="save_ans">Next</button></a>
+                    <a href="?page={{ questions.next_page_number }}"><button class="form-control btn-outline-dark" size="5" id="save_ans">Next</button></a>
                     {% else %}
                     <a href="resultado"><button class="btn form-control btn-success" id="save_ans">Submit Quiz</button></a>
                     {% endif %}

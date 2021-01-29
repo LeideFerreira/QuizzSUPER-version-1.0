@@ -8,15 +8,13 @@
             {%bootstrap_css%}
         <style>
             body {
-              margin: 0;
-              font-family: Lato, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-              font-size: 0.9375rem;
-              font-weight: 400;
-              line-height: 1.5;
-              color: #FFC0CB;
-              text-align: left;
-              background-color: #222;
-            }
+                  background-color: #7cc6fe;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  min-height: 100vh;
+}
+
             .text-primary{
                 width: 40%;
                 height: 10%;
@@ -36,8 +34,7 @@
         </style>
     </head>
     <body>
-         <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary" style="">
-             <div class="container">
+         <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" style="">
                  <a href="../" class="navbar-brand"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">QUIZZ</font></font></a>
                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Alternar de navegação">
                      <span class="navbar-toggler-icon"></span>
@@ -54,10 +51,8 @@
                          </li>
                      </ul>
                  </div>
-             </div>
          </div>
         <div>
-            <h5><p class="text-info">Plataforma Quizz com foco em questões de pré-cálculo versão 1.0</p></h5>
             <h1><a href="showquizz" class="text-primary">Clique aqui para iniciar o Quizz</a></h1>
             {% bootstrap_javascript jquery='full'%}
         </div>

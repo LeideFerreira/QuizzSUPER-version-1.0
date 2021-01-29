@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import Question
 from django.core.paginator import Paginator, EmptyPage, InvalidPage
 
-pag_total = 5  # total de paginas que vai ter o quizz,
+pag_total = 10  # total de paginas que vai ter o quizz,
 question_global = Question.objects.get_queryset().order_by('id')[:pag_total]
 # objetos aleatorio,provavelmente to errando porque atualiza a
 # pagina e aleatorio tbm
